@@ -20,11 +20,11 @@ jobs:
           paths:
             - pal-tracker-*.tgz
 
-  deployToReview:
-  #echo "deb https://packages.cloudfoundry.org/debian stable main" | tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+  deployToReview: 
+    docker:
+     #echo "deb https://packages.cloudfoundry.org/debian stable main" | tee /etc/apt/sources.list.d/cloudfoundry-cli.list
             apt-get update
             apt-get install cf-cli
-    docker:
       - image: 'microsoft/dotnet:2.1-sdk'
         environment:
           DEBIAN_FRONTEND: "noninteractive"
@@ -85,11 +85,11 @@ jobs:
 
 
 
-  deployToProd:
-  #echo "deb https://packages.cloudfoundry.org/debian stable main" | tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+  deployToProd: 
+    docker:
+     #echo "deb https://packages.cloudfoundry.org/debian stable main" | tee /etc/apt/sources.list.d/cloudfoundry-cli.list
             apt-get update
             apt-get install cf-cli
-    docker:
       - image: 'microsoft/dotnet:2.1-sdk'
         environment:
           DEBIAN_FRONTEND: "noninteractive"
