@@ -22,9 +22,6 @@ jobs:
 
   deployToReview: 
     docker:
-     #echo "deb https://packages.cloudfoundry.org/debian stable main" | tee /etc/apt/sources.list.d/cloudfoundry-cli.list
-            apt-get update
-            apt-get install cf-cli
       - image: 'microsoft/dotnet:2.1-sdk'
         environment:
           DEBIAN_FRONTEND: "noninteractive"
@@ -86,10 +83,7 @@ jobs:
 
 
   deployToProd: 
-    docker:
-     #echo "deb https://packages.cloudfoundry.org/debian stable main" | tee /etc/apt/sources.list.d/cloudfoundry-cli.list
-            apt-get update
-            apt-get install cf-cli
+    docker:    
       - image: 'microsoft/dotnet:2.1-sdk'
         environment:
           DEBIAN_FRONTEND: "noninteractive"
