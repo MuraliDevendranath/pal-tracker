@@ -64,7 +64,7 @@ jobs:
           name: Deploy
           command: |
               cd $EXTRACT_DEST
-              cf login -a $CF_API -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s $ENVIRONMENT
+              cf login -a $CF_API -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s "murali_devendranath@dell.com"
               cf push -f manifest-$ENVIRONMENT.yml
               bash ./migrate-databases.sh pal-tracker . /root/project
   deployToProd: 
@@ -114,7 +114,7 @@ jobs:
           name: Deploy
           command: |
               cd $EXTRACT_DEST
-              cf login -a $CF_API -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s $ENVIRONMENT
+              cf login -a $CF_API -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s "murali_devendranath@dell.com"
               cf push -f manifest-$ENVIRONMENT.yml
               bash ./migrate-databases.sh pal-tracker . /root/project
 workflows:
