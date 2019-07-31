@@ -40,13 +40,7 @@ jobs:
           name: Unzip artifacts
           command: |
             mkdir -p $EXTRACT_DEST
-            tar -xvzf artifacts/pal-tracker-$CIRCLE_SHA1.tgz -C $EXTRACT_DEST
-      - run:
-          name: Deploy
-          command: |
-            cd $EXTRACT_DEST
-            cf login -a $CF_API -u "$CF_USERNAME" -p "$CF_PASSWORD" -o "$CF_ORG" -s "murali_devendranath@dell.com"
-            cf push -f manifest-$ENVIRONMENT.yml      
+            tar -xvzf artifacts/pal-tracker-$CIRCLE_SHA1.tgz -C $EXTRACT_DEST     
       - run:
           name: Install jq
           command: |
@@ -91,12 +85,6 @@ jobs:
           command: |
             mkdir -p $EXTRACT_DEST
             tar -xvzf artifacts/pal-tracker-$CIRCLE_SHA1.tgz -C $EXTRACT_DEST
-      - run:
-          name: Deploy
-          command: |
-            cd $EXTRACT_DEST
-            cf login -a $CF_API -u "$CF_USERNAME" -p "$CF_PASSWORD" -o "$CF_ORG" -s "murali_devendranath@dell.com"
-            cf push -f manifest-$ENVIRONMENT.yml 
       - run:
           name: Install jq
           command: |
