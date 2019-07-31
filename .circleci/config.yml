@@ -11,10 +11,8 @@ jobs:
           name: Test and build
           command: |
             bash ./scripts/build.sh $CIRCLE_SHA1
-
       - store_artifacts:
           path: artifacts
-
       - persist_to_workspace:
           root: artifacts
           paths:
@@ -47,7 +45,6 @@ jobs:
           name: Deploy
           command: |
             cd $EXTRACT_DEST
-
             cf login -a $CF_API -u "$CF_USERNAME" -p "$CF_PASSWORD" -o "$CF_ORG" -s "murali_devendranath@dell.com"
             cf push -f manifest-$ENVIRONMENT.yml      
       - run:
@@ -67,7 +64,6 @@ jobs:
         name: Deploy
         command: |
             cd $EXTRACT_DEST
-
             cf login -a $CF_API -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s $ENVIRONMENT
             cf push -f manifest-$ENVIRONMENT.yml
             bash ./migrate-databases.sh pal-tracker . /root/project
@@ -99,7 +95,6 @@ jobs:
           name: Deploy
           command: |
             cd $EXTRACT_DEST
-
             cf login -a $CF_API -u "$CF_USERNAME" -p "$CF_PASSWORD" -o "$CF_ORG" -s "murali_devendranath@dell.com"
             cf push -f manifest-$ENVIRONMENT.yml 
       - run:
@@ -119,7 +114,6 @@ jobs:
         name: Deploy
         command: |
             cd $EXTRACT_DEST
-
             cf login -a $CF_API -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s $ENVIRONMENT
             cf push -f manifest-$ENVIRONMENT.yml
            bash ./migrate-databases.sh pal-tracker . /root/project
