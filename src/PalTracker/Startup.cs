@@ -35,6 +35,7 @@ namespace PalTracker
                Configuration.GetValue<string>("CF_INSTANCE_INDEX", "5001"),
                Configuration.GetValue<string>("CF_INSTANCE_ADDR", "5001")
            ));
+           services.AddSingleton<ITimeEntryRepository, InMemoryTimeEntryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
